@@ -11,44 +11,15 @@ from models.baseline_specification import detect_hazards
 import warnings
 import logging
 
-# NEW: ensure numpy is available for dtype casting
-import numpy as np
-
-# NEW: enable CPU fallback for unsupported MPS ops (robustness on Apple Silicon)
-os.environ.setdefault("PYTORCH_ENABLE_MPS_FALLBACK", "1")
-
-# NEW: force PyTorch default dtype to float32 system-wide (fixes MPS float64 errors)
-torch.set_default_dtype(torch.float32)
-
 warnings.filterwarnings("ignore")
 process = psutil.Process(os.getpid())
 logging.getLogger("pytorch_lightning").setLevel(logging.ERROR)
 
 random.seed(42)
 
-
-# NEW: prefer MPS (Apple Silicon), then CUDA, else CPU
-def select_device():
-    if hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
-        return torch.device("mps")
-    elif torch.cuda.is_available():
-        return torch.device("cuda")
-    else:
-        return torch.device("cpu")
-
-
-# NEW: helper to cast Darts TimeSeries lists to float32
-def _to_float32_timeseries(series_list, covar_list=None):
-    # Darts TimeSeries supports.astype(np.float32)
-    series_list = [s.astype(np.float32) for s in series_list]
-    if covar_list is not None:
-        covar_list = [c.astype(np.float32) for c in covar_list]
-    return series_list, covar_list
-
-
 def main(args):
-    # UPDATED: use MPS when available
-    device = select_device()
+
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     '''Set up logging '''
     if not args.log_tag:
@@ -64,7 +35,6 @@ def main(args):
     logging.info("========== Configuration ==========")
     for k, v in vars(args).items():
         logging.info(f"{k}: {v}")
-    logging.info(f"Selected device: {device}")
     logging.info("===================================")
 
     logging.info("Starting anomaly detection pipeline...")
@@ -89,13 +59,14 @@ def main(args):
         print("Testbed is not in the valid set: ['simglucose']")
         return
 
+
     # Train the model
     if args.mode == 'train':
         train_data = SimglucoseData(args.data_path, patients_train, window_size=args.window_size, step=args.stride,
                                     norm=norm)
         valid_data = SimglucoseData(args.data_path, patients_valid, window_size=args.window_size, step=args.stride,
                                     norm=norm)
-
+        
         print(train_data)
 
         if args.method in ['RNN', 'LSTM', 'Transformer', 'RandomForest', 'VARIMA', 'KalmanFilter',
@@ -103,13 +74,8 @@ def main(args):
             # Transfer data into TimeSeries objects
             train_series, train_covar = util.to_darts_timeseries_list(train_data.samples)
             valid_series, valid_covar = util.to_darts_timeseries_list(valid_data.samples)
-
-            # NEW: cast to float32 to satisfy MPS
-            train_series, train_covar = _to_float32_timeseries(train_series, train_covar)
-            valid_series, valid_covar = _to_float32_timeseries(valid_series, valid_covar)
-
             forecaster = ForecastingAnomaly(model=args.method, scorer='difference', input_chunk_length=277,
-                                            training_length=336, epochs=10)
+                                          training_length=336, epochs=10)
             forecaster.model.fit(
                 series=train_series,
                 past_covariates=train_covar,
@@ -120,6 +86,7 @@ def main(args):
             model_save_path = os.path.join(log_dir, 'model.pt')
             forecaster.model.save(model_save_path)
             logging.info("Model saved to %s", model_save_path)
+
 
     # Test the model
     elif args.mode == 'test':
@@ -142,19 +109,9 @@ def main(args):
             window_predicts = []
             patient_profile = p_data['static_covar']
 
-            # OPTIONAL PERFORMANCE: load model once per patient (avoids repeated deserialization)
-            anomaly_detector = None
-            pretrained_model = None
-            if args.method in ['RNN', 'LSTM', 'GRU', 'Transformer']:
-                anomaly_detector = ForecastingAnomaly(model=args.method,
-                                                      input_chunk_length=277,
-                                                      training_length=336)
-                pretrained_model = anomaly_detector.model.load(args.model_path)
-                anomaly_detector.update_model(pretrained_model)
-
             for sample in p_data['slide_samples']:
                 # ---- memory before ----
-                mem_before = process.memory_info().rss / (1024 ** 2)  # MB
+                mem_before = process.memory_info().rss / (1024 ** 2) # MB
 
                 if torch.cuda.is_available():
                     torch.cuda.reset_peak_memory_stats()
@@ -166,11 +123,13 @@ def main(args):
                     pred = detect_hazards(sample['data'], p_data['thresholds'])
                     end_time = time.perf_counter()
                 elif args.method in ['RNN', 'LSTM', 'GRU', 'Transformer']:
-                    # Prepare Darts inputs for this window
-                    test_series, test_covar = util.to_darts_timeseries_list([sample], patient_profile)
+                    anomaly_detector = ForecastingAnomaly(model=args.method,
+                                                    input_chunk_length=277,
+                                                    training_length=336)
+                    pretrained_model = anomaly_detector.model.load(args.model_path)
+                    anomaly_detector.update_model(pretrained_model)
 
-                    # NEW: cast to float32 to satisfy MPS
-                    test_series, test_covar = _to_float32_timeseries(test_series, test_covar)
+                    test_series, test_covar = util.to_darts_timeseries_list([sample], patient_profile)
 
                     start_time = time.perf_counter()
                     pred = anomaly_detector.anomaly_detection(test_series, test_covar)
@@ -180,7 +139,6 @@ def main(args):
 
                 else:
                     print(f'Method {args.method} not implemented')
-                    continue
                 # ---- inference end ----
 
                 # ---- memory after ----
@@ -199,9 +157,9 @@ def main(args):
                 window_predicts.append(pred)
 
             # Stitch sliding window samples back to continuous time series
+            # mode: "max" | "mean" | "vote"
             stitch_mode = 'max'
-            stitched_pred = util.stitch_predictions(window_predicts, args.window_size, args.stride,
-                                                    len(p_data['faults']), mode="max")
+            stitched_pred = util.stitch_predictions(window_predicts, args.window_size, args.stride, len(p_data['faults']), mode="max")
             logging.info(f"Stitching sliding window samples back to continuous time series using mode: {stitch_mode}")
 
             # Evaluate detection and hazard reaction time performance at real-time anomaly detection level
@@ -219,9 +177,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Anomaly Detection for Artificial Pancreas Systems")
 
     # Add arguments for user inputs
-    parser.add_argument('--data_path', type=str, nargs='+',
-                        default=["datasets/simglucose/Simulation_OpenAPS_testing_all_faults"]
-                        # D:\GlucoseSimulatedDatasets\APS-faultydata\simulationCollection_newmodel
+    parser.add_argument('--data_path', type=str, nargs='+', default=["datasets/simglucose/Simulation_OpenAPS_testing_all_faults"]   # D:\GlucoseSimulatedDatasets\APS-faultydata\simulationCollection_newmodel
                         , help="Paths to the input attacked data file.")
     parser.add_argument('--model_path', type=str, default='logs/train/RNN_20251113_1904/model.pt'
                         , help="Paths to trained model.")
