@@ -108,8 +108,8 @@ def main(args):
             train_series, train_covar = _to_float32_timeseries(train_series, train_covar)
             valid_series, valid_covar = _to_float32_timeseries(valid_series, valid_covar)
 
-            forecaster = ForecastingAnomaly(model=args.method, scorer='difference', input_chunk_length=277,
-                                            training_length=336, epochs=10)
+            forecaster = ForecastingAnomaly(model=args.method, scorer='difference', input_chunk_length=90,
+                                            training_length=180, epochs=10)
             forecaster.model.fit(
                 series=train_series,
                 past_covariates=train_covar,
@@ -147,8 +147,8 @@ def main(args):
             pretrained_model = None
             if args.method in ['RNN', 'LSTM', 'GRU', 'Transformer']:
                 anomaly_detector = ForecastingAnomaly(model=args.method,
-                                                      input_chunk_length=277,
-                                                      training_length=336)
+                                                      input_chunk_length=90,
+                                                      training_length=180)
                 pretrained_model = anomaly_detector.model.load(args.model_path)
                 anomaly_detector.update_model(pretrained_model)
 
