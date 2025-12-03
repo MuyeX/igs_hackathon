@@ -109,7 +109,7 @@ def main(args):
             valid_series, valid_covar = _to_float32_timeseries(valid_series, valid_covar)
 
             forecaster = ForecastingAnomaly(model=args.method, scorer='difference', input_chunk_length=90,
-                                            training_length=120, epochs=10)
+                                            training_length=120, epochs=15)
             forecaster.model.fit(
                 series=train_series,
                 past_covariates=train_covar,
@@ -176,7 +176,7 @@ def main(args):
                     pred = anomaly_detector.anomaly_detection(test_series, test_covar)
                     end_time = time.perf_counter()
 
-                    pred = pred[0].to_dataframe().reindex(range(150), fill_value=0).to_numpy().flatten()
+                    pred = pred[0].to_dataframe().reindex(range(277), fill_value=0).to_numpy().flatten()
 
                 else:
                     print(f'Method {args.method} not implemented')

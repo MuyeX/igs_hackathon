@@ -1,0 +1,20 @@
+2025-12-03 07:51:01,388 - INFO - ========== Configuration ==========
+2025-12-03 07:51:01,388 - INFO - data_path: ['./datasets/simglucose/Simulation_OpenAPS_training_normal_scenario1', './datasets/simglucose/Simulation_OpenAPS_training_normal_scenario2']
+2025-12-03 07:51:01,388 - INFO - model_path: logs/train/RNN_20251113_1904/model.pt
+2025-12-03 07:51:01,388 - INFO - mode: train
+2025-12-03 07:51:01,388 - INFO - testbed: simglucose
+2025-12-03 07:51:01,388 - INFO - method: LSTM
+2025-12-03 07:51:01,388 - INFO - log_dir: logs/
+2025-12-03 07:51:01,388 - INFO - log_tag: 20251203_0751
+2025-12-03 07:51:01,388 - INFO - tolerance_window: 48
+2025-12-03 07:51:01,388 - INFO - batch_size: 64
+2025-12-03 07:51:01,388 - INFO - bg_target: 140
+2025-12-03 07:51:01,388 - INFO - window_size: 277
+2025-12-03 07:51:01,388 - INFO - stride: 6
+2025-12-03 07:51:01,388 - INFO - Selected device: cuda
+2025-12-03 07:51:01,388 - INFO - ===================================
+2025-12-03 07:51:01,388 - INFO - Starting anomaly detection pipeline...
+2025-12-03 07:51:01,388 - INFO - Reading data from: ['./datasets/simglucose/Simulation_OpenAPS_training_normal_scenario1', './datasets/simglucose/Simulation_OpenAPS_training_normal_scenario2']
+2025-12-03 07:51:32,078 - INFO - Train dataset contains 134432 samples.
+2025-12-03 07:51:32,081 - INFO - Time series values are 32-bits; casting model to float32.
+2025-12-03 07:56:44,980 - INFO - Model saved to logs/train/LSTM_20251203_0751/model.pt

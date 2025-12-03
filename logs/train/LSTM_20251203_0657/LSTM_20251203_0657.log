@@ -1,0 +1,40 @@
+2025-12-03 06:57:19,974 - INFO - ========== Configuration ==========
+2025-12-03 06:57:19,975 - INFO - data_path: ['./datasets/simglucose/Simulation_OpenAPS_training_normal_scenario1', './datasets/simglucose/Simulation_OpenAPS_training_normal_scenario2']
+2025-12-03 06:57:19,975 - INFO - model_path: logs/train/RNN_20251113_1904/model.pt
+2025-12-03 06:57:19,975 - INFO - mode: train
+2025-12-03 06:57:19,975 - INFO - testbed: simglucose
+2025-12-03 06:57:19,975 - INFO - method: LSTM
+2025-12-03 06:57:19,975 - INFO - log_dir: logs/
+2025-12-03 06:57:19,975 - INFO - log_tag: 20251203_0657
+2025-12-03 06:57:19,975 - INFO - tolerance_window: 48
+2025-12-03 06:57:19,975 - INFO - batch_size: 64
+2025-12-03 06:57:19,975 - INFO - bg_target: 140
+2025-12-03 06:57:19,975 - INFO - window_size: 150
+2025-12-03 06:57:19,975 - INFO - stride: 6
+2025-12-03 06:57:19,975 - INFO - Selected device: cuda
+2025-12-03 06:57:19,975 - INFO - ===================================
+2025-12-03 06:57:19,975 - INFO - Starting anomaly detection pipeline...
+2025-12-03 06:57:19,975 - INFO - Reading data from: ['./datasets/simglucose/Simulation_OpenAPS_training_normal_scenario1', './datasets/simglucose/Simulation_OpenAPS_training_normal_scenario2']
+2025-12-03 06:57:29,228 - INFO - ========== Configuration ==========
+2025-12-03 06:57:29,228 - INFO - data_path: ['./datasets/simglucose/Simulation_OpenAPS_training_normal_scenario1', './datasets/simglucose/Simulation_OpenAPS_training_normal_scenario2']
+2025-12-03 06:57:29,228 - INFO - model_path: logs/train/RNN_20251113_1904/model.pt
+2025-12-03 06:57:29,228 - INFO - mode: train
+2025-12-03 06:57:29,228 - INFO - testbed: simglucose
+2025-12-03 06:57:29,228 - INFO - method: LSTM
+2025-12-03 06:57:29,228 - INFO - log_dir: logs/
+2025-12-03 06:57:29,228 - INFO - log_tag: 20251203_0657
+2025-12-03 06:57:29,228 - INFO - tolerance_window: 48
+2025-12-03 06:57:29,228 - INFO - batch_size: 64
+2025-12-03 06:57:29,228 - INFO - bg_target: 140
+2025-12-03 06:57:29,228 - INFO - window_size: 150
+2025-12-03 06:57:29,228 - INFO - stride: 6
+2025-12-03 06:57:29,228 - INFO - Selected device: cuda
+2025-12-03 06:57:29,228 - INFO - ===================================
+2025-12-03 06:57:29,228 - INFO - Starting anomaly detection pipeline...
+2025-12-03 06:57:29,228 - INFO - Reading data from: ['./datasets/simglucose/Simulation_OpenAPS_training_normal_scenario1', './datasets/simglucose/Simulation_OpenAPS_training_normal_scenario2']
+2025-12-03 06:57:57,747 - INFO - Train dataset contains 134432 samples.
+2025-12-03 06:57:57,750 - INFO - Time series values are 32-bits; casting model to float32.
+2025-12-03 06:58:06,466 - INFO - Train dataset contains 134432 samples.
+2025-12-03 06:58:06,469 - INFO - Time series values are 32-bits; casting model to float32.
+2025-12-03 07:01:36,396 - INFO - Model saved to logs/train/LSTM_20251203_0657/model.pt
+2025-12-03 07:01:43,848 - INFO - Model saved to logs/train/LSTM_20251203_0657/model.pt

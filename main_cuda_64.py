@@ -74,8 +74,8 @@ def main(args):
             # Transfer data into TimeSeries objects
             train_series, train_covar = util.to_darts_timeseries_list(train_data.samples)
             valid_series, valid_covar = util.to_darts_timeseries_list(valid_data.samples)
-            forecaster = ForecastingAnomaly(model=args.method, scorer='difference', input_chunk_length=277,
-                                          training_length=336, epochs=10)
+            forecaster = ForecastingAnomaly(model=args.method, scorer='difference', input_chunk_length=90,
+                                          training_length=120, epochs=10)
             forecaster.model.fit(
                 series=train_series,
                 past_covariates=train_covar,
@@ -124,8 +124,8 @@ def main(args):
                     end_time = time.perf_counter()
                 elif args.method in ['RNN', 'LSTM', 'GRU', 'Transformer']:
                     anomaly_detector = ForecastingAnomaly(model=args.method,
-                                                    input_chunk_length=277,
-                                                    training_length=336)
+                                                    input_chunk_length=90,
+                                                    training_length=120)
                     pretrained_model = anomaly_detector.model.load(args.model_path)
                     anomaly_detector.update_model(pretrained_model)
 
