@@ -1,0 +1,19 @@
+2025-12-03 11:58:54,631 - INFO - ========== Configuration ==========
+2025-12-03 11:58:54,631 - INFO - data_path: ['./datasets/simglucose/Simulation_OpenAPS_testing_all_faults/']
+2025-12-03 11:58:54,631 - INFO - model_path: ./logs/train/LSTM_20251202_1247/model.pt
+2025-12-03 11:58:54,631 - INFO - mode: test
+2025-12-03 11:58:54,631 - INFO - testbed: simglucose
+2025-12-03 11:58:54,631 - INFO - method: LSTM
+2025-12-03 11:58:54,631 - INFO - log_dir: logs/
+2025-12-03 11:58:54,631 - INFO - log_tag: 20251203_1158
+2025-12-03 11:58:54,631 - INFO - tolerance_window: 48
+2025-12-03 11:58:54,631 - INFO - batch_size: 64
+2025-12-03 11:58:54,631 - INFO - bg_target: 140
+2025-12-03 11:58:54,631 - INFO - window_size: 150
+2025-12-03 11:58:54,631 - INFO - stride: 6
+2025-12-03 11:58:54,631 - INFO - Selected device: mps
+2025-12-03 11:58:54,631 - INFO - ===================================
+2025-12-03 11:58:54,631 - INFO - Starting anomaly detection pipeline...
+2025-12-03 11:58:54,631 - INFO - Reading data from: ['./datasets/simglucose/Simulation_OpenAPS_testing_all_faults/']
+2025-12-03 11:58:54,631 - INFO - Running anomaly detection using LSTM...
+2025-12-03 11:58:56,834 - INFO - Total 10 patient and each patient have 312 samples for testing.

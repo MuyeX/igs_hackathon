@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="AID_anomaly_detection" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="AID_anomaly_detection" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="igs_hackathon" project-jdk-type="Python SDK" />
 </project>

@@ -1,0 +1,19 @@
+2025-12-03 14:04:09,339 - INFO - ========== Configuration ==========
+2025-12-03 14:04:09,339 - INFO - data_path: ['./datasets/simglucose/Simulation_OpenAPS_training_normal_scenario1', './datasets/simglucose/Simulation_OpenAPS_training_normal_scenario2']
+2025-12-03 14:04:09,339 - INFO - model_path: logs/train/RNN_20251113_1904/model.pt
+2025-12-03 14:04:09,339 - INFO - mode: train
+2025-12-03 14:04:09,339 - INFO - testbed: simglucose
+2025-12-03 14:04:09,339 - INFO - method: LSTM
+2025-12-03 14:04:09,339 - INFO - log_dir: logs/
+2025-12-03 14:04:09,339 - INFO - log_tag: 20251203_1404
+2025-12-03 14:04:09,339 - INFO - tolerance_window: 48
+2025-12-03 14:04:09,339 - INFO - batch_size: 64
+2025-12-03 14:04:09,339 - INFO - bg_target: 140
+2025-12-03 14:04:09,339 - INFO - window_size: 150
+2025-12-03 14:04:09,339 - INFO - stride: 6
+2025-12-03 14:04:09,339 - INFO - Selected device: mps
+2025-12-03 14:04:09,339 - INFO - ===================================
+2025-12-03 14:04:09,339 - INFO - Starting anomaly detection pipeline...
+2025-12-03 14:04:09,339 - INFO - Reading data from: ['./datasets/simglucose/Simulation_OpenAPS_training_normal_scenario1', './datasets/simglucose/Simulation_OpenAPS_training_normal_scenario2']
+2025-12-03 14:04:38,625 - INFO - Train dataset contains 127520 samples.
+2025-12-03 14:04:38,629 - INFO - Time series values are 32-bits; casting model to float32.

@@ -1,0 +1,16 @@
+2025-12-03 11:10:42,994 - INFO - ========== Configuration ==========
+2025-12-03 11:10:42,994 - INFO - data_path: ['datasets/simglucose/Simulation_OpenAPS_testing_all_faults']
+2025-12-03 11:10:42,994 - INFO - model_path: logs/train/RNN_20251113_1904/model.pt
+2025-12-03 11:10:42,994 - INFO - mode: train
+2025-12-03 11:10:42,994 - INFO - testbed: simglucose
+2025-12-03 11:10:42,994 - INFO - method: LSTM
+2025-12-03 11:10:42,994 - INFO - log_dir: logs/results/thresholds/
+2025-12-03 11:10:42,994 - INFO - log_tag: 20251203_1110
+2025-12-03 11:10:42,994 - INFO - tolerance_window: 48
+2025-12-03 11:10:42,994 - INFO - batch_size: 64
+2025-12-03 11:10:42,994 - INFO - bg_target: 140
+2025-12-03 11:10:42,994 - INFO - window_size: 150
+2025-12-03 11:10:42,994 - INFO - stride: 6
+2025-12-03 11:10:42,994 - INFO - ===================================
+2025-12-03 11:10:42,995 - INFO - Starting anomaly detection pipeline...
+2025-12-03 11:10:42,995 - INFO - Reading data from: ['datasets/simglucose/Simulation_OpenAPS_testing_all_faults']
