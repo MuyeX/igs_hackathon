@@ -1,0 +1,6 @@
+CUDA_VISIBLE_DEVICES=0 python main.py \
+  --mode test \
+  --method LSTM \
+  --model_path ./logs/train/LSTM_20251202_1247/model.pt      \
+  --data_path ./datasets/simglucose/Simulation_OpenAPS_testing_all_faults/ \
+  --log_dir logs/
