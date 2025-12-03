@@ -1,0 +1,18 @@
+2025-12-03 08:10:48,409 - INFO - ========== Configuration ==========
+2025-12-03 08:10:48,409 - INFO - data_path: ['./datasets/simglucose/test-data/']
+2025-12-03 08:10:48,409 - INFO - model_path: ./logs/train/LSTM_20251203_0758/model.pt
+2025-12-03 08:10:48,409 - INFO - mode: test
+2025-12-03 08:10:48,409 - INFO - testbed: simglucose
+2025-12-03 08:10:48,409 - INFO - method: LSTM
+2025-12-03 08:10:48,409 - INFO - log_dir: logs/
+2025-12-03 08:10:48,409 - INFO - log_tag: 20251203_0810
+2025-12-03 08:10:48,409 - INFO - tolerance_window: 48
+2025-12-03 08:10:48,409 - INFO - batch_size: 64
+2025-12-03 08:10:48,409 - INFO - bg_target: 140
+2025-12-03 08:10:48,409 - INFO - window_size: 277
+2025-12-03 08:10:48,409 - INFO - stride: 6
+2025-12-03 08:10:48,409 - INFO - Selected device: cuda
+2025-12-03 08:10:48,409 - INFO - ===================================
+2025-12-03 08:10:48,409 - INFO - Starting anomaly detection pipeline...
+2025-12-03 08:10:48,409 - INFO - Reading data from: ['./datasets/simglucose/test-data/']
+2025-12-03 08:10:48,410 - INFO - Running anomaly detection using LSTM...

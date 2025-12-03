@@ -1,0 +1,329 @@
+2025-12-03 08:13:07,844 - INFO - ========== Configuration ==========
+2025-12-03 08:13:07,844 - INFO - data_path: ['./datasets/simglucose/test-data/']
+2025-12-03 08:13:07,844 - INFO - model_path: ./logs/train/LSTM_20251203_0758/model.pt
+2025-12-03 08:13:07,844 - INFO - mode: test
+2025-12-03 08:13:07,844 - INFO - testbed: simglucose
+2025-12-03 08:13:07,844 - INFO - method: LSTM
+2025-12-03 08:13:07,844 - INFO - log_dir: logs/
+2025-12-03 08:13:07,844 - INFO - log_tag: 20251203_0813
+2025-12-03 08:13:07,844 - INFO - tolerance_window: 48
+2025-12-03 08:13:07,844 - INFO - batch_size: 64
+2025-12-03 08:13:07,844 - INFO - bg_target: 140
+2025-12-03 08:13:07,844 - INFO - window_size: 277
+2025-12-03 08:13:07,844 - INFO - stride: 6
+2025-12-03 08:13:07,844 - INFO - Selected device: cuda
+2025-12-03 08:13:07,844 - INFO - ===================================
+2025-12-03 08:13:07,844 - INFO - Starting anomaly detection pipeline...
+2025-12-03 08:13:07,845 - INFO - Reading data from: ['./datasets/simglucose/test-data/']
+2025-12-03 08:13:07,845 - INFO - Running anomaly detection using LSTM...
+2025-12-03 08:13:12,125 - INFO - Total 10 patient and each patient have 290 samples for testing.
+2025-12-03 08:13:19,890 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:13:20,594 - INFO - 
+Patient_10's Overall Evaluation Metrics:
+  standard_f: 0.1667
+  range_f: 0.2000
+  affinity_f: 0.3707
+  fault_to_hazard_reaction:
+    detection_rate: 31.2500
+    reaction_time (min): {'median': np.float64(60.0), 'q1': np.float64(25.0), 'q3': np.float64(160.0), 'p95': np.float64(339.99999999999994), 'min': np.float64(5.0), 'max': np.float64(385.0)}
+  all_hazard_reaction:
+    detection_rate: 22.2222
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(75.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:13:20,594 - INFO - 
+Patient_10's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0118
+  Standard F-score - 95%CI: 0.0061
+  Range F-score - Mean: 0.0369
+  Range F-score - 95%CI: 0.0162
+  Affinity F-score - Mean: 0.0567
+  Affinity F-score - 95%CI: 0.0208
+  Inference Latency (s):
+    median: 0.0219
+    q1: 0.0215
+    q3: 0.0227
+    p95: 0.0256
+    min: 0.0208
+    max: 0.2227
+  Memory Footprint - Peak RAM (MB): 273.7891
+  Memory Footprint - Peak GPU (MB): 23.0059
+
+2025-12-03 08:13:27,849 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:13:28,556 - INFO - 
+Patient_11's Overall Evaluation Metrics:
+  standard_f: 0.1538
+  range_f: 0.1053
+  affinity_f: 0.3649
+  fault_to_hazard_reaction:
+    detection_rate: 25.0000
+    reaction_time (min): {'median': np.float64(85.0), 'q1': np.float64(16.25), 'q3': np.float64(217.5), 'p95': np.float64(379.4999999999999), 'min': np.float64(5.0), 'max': np.float64(420.0)}
+  all_hazard_reaction:
+    detection_rate: 22.2222
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(165.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:13:28,556 - INFO - 
+Patient_11's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0117
+  Standard F-score - 95%CI: 0.0064
+  Range F-score - Mean: 0.0348
+  Range F-score - 95%CI: 0.0169
+  Affinity F-score - Mean: 0.0563
+  Affinity F-score - 95%CI: 0.0210
+  Inference Latency (s):
+    median: 0.0220
+    q1: 0.0215
+    q3: 0.0232
+    p95: 0.0260
+    min: 0.0209
+    max: 0.0375
+  Memory Footprint - Peak RAM (MB): 0.1523
+  Memory Footprint - Peak GPU (MB): 23.0059
+
+2025-12-03 08:13:35,690 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:13:36,428 - INFO - 
+Patient_12's Overall Evaluation Metrics:
+  standard_f: 0.1641
+  range_f: 0.2105
+  affinity_f: 0.3730
+  fault_to_hazard_reaction:
+    detection_rate: 37.5000
+    reaction_time (min): {'median': np.float64(90.0), 'q1': np.float64(32.5), 'q3': np.float64(323.75), 'p95': np.float64(465.0), 'min': np.float64(5.0), 'max': np.float64(490.0)}
+  all_hazard_reaction:
+    detection_rate: 25.0000
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(180.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:13:36,428 - INFO - 
+Patient_12's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0132
+  Standard F-score - 95%CI: 0.0067
+  Range F-score - Mean: 0.0444
+  Range F-score - 95%CI: 0.0198
+  Affinity F-score - Mean: 0.0585
+  Affinity F-score - 95%CI: 0.0214
+  Inference Latency (s):
+    median: 0.0218
+    q1: 0.0214
+    q3: 0.0226
+    p95: 0.0255
+    min: 0.0208
+    max: 0.0293
+  Memory Footprint - Peak RAM (MB): 0.1602
+  Memory Footprint - Peak GPU (MB): 23.0059
+
+2025-12-03 08:13:43,589 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:13:44,310 - INFO - 
+Patient_13's Overall Evaluation Metrics:
+  standard_f: 0.1628
+  range_f: 0.1053
+  affinity_f: 0.3737
+  fault_to_hazard_reaction:
+    detection_rate: 42.8571
+    reaction_time (min): {'median': np.float64(55.0), 'q1': np.float64(26.25), 'q3': np.float64(350.0), 'p95': np.float64(443.75), 'min': np.float64(5.0), 'max': np.float64(445.0)}
+  all_hazard_reaction:
+    detection_rate: 24.0000
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(180.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:13:44,310 - INFO - 
+Patient_13's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0160
+  Standard F-score - 95%CI: 0.0069
+  Range F-score - Mean: 0.0406
+  Range F-score - 95%CI: 0.0169
+  Affinity F-score - Mean: 0.0619
+  Affinity F-score - 95%CI: 0.0219
+  Inference Latency (s):
+    median: 0.0219
+    q1: 0.0215
+    q3: 0.0229
+    p95: 0.0241
+    min: 0.0210
+    max: 0.0265
+  Memory Footprint - Peak RAM (MB): 0.1680
+  Memory Footprint - Peak GPU (MB): 23.0059
+
+2025-12-03 08:13:51,538 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:13:52,250 - INFO - 
+Patient_14's Overall Evaluation Metrics:
+  standard_f: 0.1673
+  range_f: 0.2857
+  affinity_f: 0.3685
+  fault_to_hazard_reaction:
+    detection_rate: 35.7143
+    reaction_time (min): {'median': np.float64(45.0), 'q1': np.float64(20.0), 'q3': np.float64(250.0), 'p95': np.float64(366.0), 'min': np.float64(5.0), 'max': np.float64(395.0)}
+  all_hazard_reaction:
+    detection_rate: 17.8571
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(180.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:13:52,250 - INFO - 
+Patient_14's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0071
+  Standard F-score - 95%CI: 0.0041
+  Range F-score - Mean: 0.0292
+  Range F-score - 95%CI: 0.0127
+  Affinity F-score - Mean: 0.0528
+  Affinity F-score - 95%CI: 0.0198
+  Inference Latency (s):
+    median: 0.0221
+    q1: 0.0217
+    q3: 0.0231
+    p95: 0.0250
+    min: 0.0211
+    max: 0.0277
+  Memory Footprint - Peak RAM (MB): 0.1719
+  Memory Footprint - Peak GPU (MB): 23.0059
+
+2025-12-03 08:13:59,363 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:14:00,086 - INFO - 
+Patient_15's Overall Evaluation Metrics:
+  standard_f: 0.1701
+  range_f: 0.1905
+  affinity_f: 0.3697
+  fault_to_hazard_reaction:
+    detection_rate: 26.6667
+    reaction_time (min): {'median': np.float64(80.0), 'q1': np.float64(23.75), 'q3': np.float64(191.25), 'p95': np.float64(338.2499999999999), 'min': np.float64(5.0), 'max': np.float64(375.0)}
+  all_hazard_reaction:
+    detection_rate: 24.0000
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(145.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:14:00,086 - INFO - 
+Patient_15's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0121
+  Standard F-score - 95%CI: 0.0061
+  Range F-score - Mean: 0.0364
+  Range F-score - 95%CI: 0.0159
+  Affinity F-score - Mean: 0.0559
+  Affinity F-score - 95%CI: 0.0207
+  Inference Latency (s):
+    median: 0.0218
+    q1: 0.0214
+    q3: 0.0226
+    p95: 0.0247
+    min: 0.0209
+    max: 0.0273
+  Memory Footprint - Peak RAM (MB): 0.1406
+  Memory Footprint - Peak GPU (MB): 23.0059
+
+2025-12-03 08:14:07,362 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:14:08,078 - INFO - 
+Patient_16's Overall Evaluation Metrics:
+  standard_f: 0.1628
+  range_f: 0.1053
+  affinity_f: 0.3737
+  fault_to_hazard_reaction:
+    detection_rate: 35.2941
+    reaction_time (min): {'median': np.float64(82.5), 'q1': np.float64(40.0), 'q3': np.float64(166.25), 'p95': np.float64(360.0), 'min': np.float64(5.0), 'max': np.float64(420.0)}
+  all_hazard_reaction:
+    detection_rate: 28.0000
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(140.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:14:08,078 - INFO - 
+Patient_16's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0119
+  Standard F-score - 95%CI: 0.0056
+  Range F-score - Mean: 0.0366
+  Range F-score - 95%CI: 0.0151
+  Affinity F-score - Mean: 0.0588
+  Affinity F-score - 95%CI: 0.0214
+  Inference Latency (s):
+    median: 0.0222
+    q1: 0.0217
+    q3: 0.0232
+    p95: 0.0254
+    min: 0.0209
+    max: 0.0395
+  Memory Footprint - Peak RAM (MB): 7.3594
+  Memory Footprint - Peak GPU (MB): 23.0059
+
+2025-12-03 08:14:15,509 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:14:16,228 - INFO - 
+Patient_17's Overall Evaluation Metrics:
+  standard_f: 0.1743
+  range_f: 0.1600
+  affinity_f: 0.3756
+  fault_to_hazard_reaction:
+    detection_rate: 30.7692
+    reaction_time (min): {'median': np.float64(85.0), 'q1': np.float64(27.5), 'q3': np.float64(211.25), 'p95': np.float64(394.2499999999999), 'min': np.float64(5.0), 'max': np.float64(440.0)}
+  all_hazard_reaction:
+    detection_rate: 16.6667
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(180.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:14:16,228 - INFO - 
+Patient_17's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0086
+  Standard F-score - 95%CI: 0.0047
+  Range F-score - Mean: 0.0274
+  Range F-score - 95%CI: 0.0125
+  Affinity F-score - Mean: 0.0515
+  Affinity F-score - 95%CI: 0.0195
+  Inference Latency (s):
+    median: 0.0220
+    q1: 0.0214
+    q3: 0.0227
+    p95: 0.0243
+    min: 0.0209
+    max: 0.0265
+  Memory Footprint - Peak RAM (MB): 0.1914
+  Memory Footprint - Peak GPU (MB): 23.0059
+
+2025-12-03 08:14:23,368 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:14:24,078 - INFO - 
+Patient_18's Overall Evaluation Metrics:
+  standard_f: 0.1634
+  range_f: 0.1905
+  affinity_f: 0.3732
+  fault_to_hazard_reaction:
+    detection_rate: 35.7143
+    reaction_time (min): {'median': np.float64(115.0), 'q1': np.float64(20.0), 'q3': np.float64(410.0), 'p95': np.float64(430.0), 'min': np.float64(5.0), 'max': np.float64(435.0)}
+  all_hazard_reaction:
+    detection_rate: 22.7273
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(180.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:14:24,078 - INFO - 
+Patient_18's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0174
+  Standard F-score - 95%CI: 0.0077
+  Range F-score - Mean: 0.0379
+  Range F-score - 95%CI: 0.0156
+  Affinity F-score - Mean: 0.0623
+  Affinity F-score - 95%CI: 0.0220
+  Inference Latency (s):
+    median: 0.0219
+    q1: 0.0215
+    q3: 0.0228
+    p95: 0.0242
+    min: 0.0209
+    max: 0.0282
+  Memory Footprint - Peak RAM (MB): 0.0000
+  Memory Footprint - Peak GPU (MB): 23.0059
+
+2025-12-03 08:14:31,231 - INFO - Stitching sliding window samples back to continuous time series using mode: max
+2025-12-03 08:14:31,934 - INFO - 
+Patient_19's Overall Evaluation Metrics:
+  standard_f: 0.1660
+  range_f: 0.1905
+  affinity_f: 0.3713
+  fault_to_hazard_reaction:
+    detection_rate: 37.5000
+    reaction_time (min): {'median': np.float64(82.5), 'q1': np.float64(30.0), 'q3': np.float64(307.5), 'p95': np.float64(453.75), 'min': np.float64(5.0), 'max': np.float64(480.0)}
+  all_hazard_reaction:
+    detection_rate: 20.6897
+    reaction_time (min): {'median': np.float64(180.0), 'q1': np.float64(180.0), 'q3': np.float64(180.0), 'p95': np.float64(180.0), 'min': np.float64(180.0), 'max': np.float64(180.0)}
+
+2025-12-03 08:14:31,934 - INFO - 
+Patient_19's Sample-level Evaluation Metrics:
+  Standard F-score - Mean: 0.0123
+  Standard F-score - 95%CI: 0.0059
+  Range F-score - Mean: 0.0393
+  Range F-score - 95%CI: 0.0165
+  Affinity F-score - Mean: 0.0607
+  Affinity F-score - 95%CI: 0.0216
+  Inference Latency (s):
+    median: 0.0220
+    q1: 0.0215
+    q3: 0.0229
+    p95: 0.0244
+    min: 0.0210
+    max: 0.0274
+  Memory Footprint - Peak RAM (MB): 0.0039
+  Memory Footprint - Peak GPU (MB): 23.0059
+
