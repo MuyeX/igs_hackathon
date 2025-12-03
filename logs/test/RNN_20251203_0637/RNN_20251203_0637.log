@@ -1,0 +1,20 @@
+2025-12-03 06:37:24,393 - INFO - ========== Configuration ==========
+2025-12-03 06:37:24,393 - INFO - data_path: ['./datasets/simglucose/Simulation_OpenAPS_testing_all_faults/']
+2025-12-03 06:37:24,393 - INFO - model_path: ./logs/train/RNN_20251203_0630/model.pt
+2025-12-03 06:37:24,393 - INFO - mode: test
+2025-12-03 06:37:24,393 - INFO - testbed: simglucose
+2025-12-03 06:37:24,393 - INFO - method: RNN
+2025-12-03 06:37:24,393 - INFO - log_dir: logs/
+2025-12-03 06:37:24,393 - INFO - log_tag: 20251203_0637
+2025-12-03 06:37:24,393 - INFO - tolerance_window: 48
+2025-12-03 06:37:24,393 - INFO - batch_size: 64
+2025-12-03 06:37:24,393 - INFO - bg_target: 140
+2025-12-03 06:37:24,393 - INFO - window_size: 150
+2025-12-03 06:37:24,393 - INFO - stride: 6
+2025-12-03 06:37:24,393 - INFO - Selected device: cuda
+2025-12-03 06:37:24,393 - INFO - ===================================
+2025-12-03 06:37:24,393 - INFO - Starting anomaly detection pipeline...
+2025-12-03 06:37:24,393 - INFO - Reading data from: ['./datasets/simglucose/Simulation_OpenAPS_testing_all_faults/']
+2025-12-03 06:37:24,393 - INFO - Running anomaly detection using RNN...
+2025-12-03 06:37:26,926 - INFO - Total 10 patient and each patient have 312 samples for testing.
+2025-12-03 06:37:27,219 - ERROR - ValueError: Cannot build any dataset for prediction with the provided model, `series` and `*_covariates` at series index: 0. The minimum prediction input time index requirements were not met. Please check the time index of `series` and `*_covariates`.
