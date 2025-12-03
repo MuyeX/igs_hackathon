@@ -1,6 +1,6 @@
 CUDA_VISIBLE_DEVICES=0 python main_MPS.py \
   --mode test \
-  --method LSTM \
+  --method RNN \
   --model_path ./logs/train/LSTM_20251203_1145/model.pt      \
   --data_path ./datasets/simglucose/Simulation_OpenAPS_testing_all_faults/ \
   --log_dir logs/
