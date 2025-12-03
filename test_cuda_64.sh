@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=0 python main.py \
+CUDA_VISIBLE_DEVICES=0 python main_cuda_64.py \
   --mode test \
   --method LSTM \
   --model_path ./logs/train/LSTM_20251203_1145/model.pt      \

@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=1 python main.py \
+CUDA_VISIBLE_DEVICES=1 python main_MPS.py \
   --mode train \
   --method LSTM \
   --testbed simglucose \
